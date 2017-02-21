@@ -1,0 +1,14 @@
+{
+  "name": "public_html",
+  "version": "1.0.0",
+  "description": "Building Survey Manager",
+  "main": "server.js",
+  "author": "Samuel Webster",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.8.4"
+  }
+}
