@@ -38,10 +38,10 @@ app.use(express.static(__dirname + '/public'));
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
-// startup our app at http://localhost:8080
+// startup our app at http://localhost:3000
 app.listen(port);
 // shoutout to the user
-console.log('Magic happens on port ' + port);
+console.log('Node Server Launched On Port:  ' + port);
 
 // expose app
 exports = module.exports = app;
