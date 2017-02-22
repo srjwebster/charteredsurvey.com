@@ -1,4 +1,4 @@
 // config/db.js
     module.exports = {
-        url : 'mongodb://localhost/charteredsurvey'
-    }
+        url : 'mongodb://185.10.200.108/charteredsurvey'
+    };
