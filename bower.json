@@ -1,0 +1,24 @@
+{
+  "name": "charteredsurvey.com",
+  "description": "A management portal for chartered surveyors.",
+  "main": "server.js",
+  "authors": [
+    "Samuel Webster"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/srjwebster/charteredsurvey.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "angular-route": "latest"
+  }
+}

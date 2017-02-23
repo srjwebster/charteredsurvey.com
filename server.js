@@ -1,48 +1,20 @@
-// server.js
+var express = require('express')
+var app = express()
+var mongo = require('mongodb')
+var bodyParser = require('body-parser')
 
-// modules =================================================
-var express        = require('express');
-var app            = express();
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
-var mongoose = require('mongoose');
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// configuration ===========================================
+app.get('*', function(req, res) {
+    res.sendFile(__dirname + '/public/index.html'); // load our public/index.html file
+})
 
-// config files
-var db = require('./config/db');
+app.use(express.static('/public'))
+// run the node server via express (notice app.listen rather than using http.createServer. Express is handling lots of this for us.)
+var port = process.env.PORT || 3000
 
-// set our port
-var port = process.env.PORT || 3000;
-
-// connect to our mongoDB database
-// (uncomment after you enter in your own credentials in config/db.js)
-mongoose.connect(db.url);
-
-// get all data/stuff of the body (POST) parameters
-// parse application/json 
-app.use(bodyParser.json()); 
-
-// parse application/vnd.api+json as json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true })); 
-
-// override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-app.use(methodOverride('X-HTTP-Method-Override')); 
-
-// set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public')); 
-
-// routes ==================================================
-require('./app/routes')(app); // configure our routes
-
-// start app ===============================================
-// startup our app at http://localhost:3000
-app.listen(port);
-// shoutout to the user
-console.log('Node Server Launched On Port:  ' + port);
-
-// expose app
-exports = module.exports = app;
+app.listen(port, function (){
+    console.log('CharteredSurvey.com is alive on ' + port)
+})
